@@ -1,26 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Cores Retrô */
+  --snake:        #9ae46a; /* Verde mais claro */
+  --snake-head:   #7CFC00; /* Verde limão brilhante */
+  --screen:       #202022; /* Fundo do jogo */
+  --screen-darker:#1a1a1c; /* Fundo da página */
+  --food:         #e23711; /* Vermelho/Laranja */
+  --border:       #4a4a4e; /* Borda cinza */
+  --text:         #e0e0e0; /* Texto quase branco */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-retro-screen-darker text-retro-text;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Adicionando as cores ao tema do Tailwind */
+@theme {
+  --color-retro-snake: var(--snake);
+  --color-retro-snake-head: var(--snake-head);
+  --color-retro-screen: var(--screen);
+  --color-retro-screen-darker: var(--screen-darker);
+  --color-retro-food: var(--food);
+  --color-retro-border: var(--border);
+  --color-retro-text: var(--text);
+
+  /* Configurando a família de fontes */
+  --font-retro: 'Press Start 2P', cursive;
 }
